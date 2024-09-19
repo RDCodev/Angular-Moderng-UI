@@ -1,8 +1,5 @@
-import { TemplateRef } from "@angular/core";
-
 export interface ButtonTemplate { }
 
-export type ButtonVariant = "";
+export type ButtonVariant = "primary" | "secondary" | "destructive" | "outline" | "ghost" | "link" | "icon" | "loading";
 
-export type ButtonSize = "";
-
+export type ButtonSize = "small" | "base" | "large";
