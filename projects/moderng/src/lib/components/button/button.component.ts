@@ -2,10 +2,12 @@ import {
   AfterContentInit,
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   HostBinding,
   Input,
   OnDestroy,
   OnInit,
+  Output,
   ViewEncapsulation,
 } from '@angular/core';
 import { ButtonSize, ButtonVariant } from './button.interface';
@@ -42,7 +44,9 @@ const buildBtnClass = (variant: string, size: string): string =>
     '[attr.type]': 'type',
     '[attr.data-disabled]': 'disabled',
     'role': 'button',
-    '(click)': 'onClick($event)'
+    '(click)': '_onClick($event)',
+    '(focus)': '_onFocus($event)',
+    '(blur)': '_onBlur($event)'
   }
 })
 export class Button implements OnInit, AfterContentInit, OnDestroy {
@@ -55,6 +59,12 @@ export class Button implements OnInit, AfterContentInit, OnDestroy {
 
   @Input() size: ButtonSize = 'base';
 
+  @Output() onClick = new EventEmitter<Event>();
+
+  @Output() onFocus = new EventEmitter<FocusEvent>();
+
+  @Output() onBlur = new EventEmitter<Event>();
+
   constructor() {}
 
   ngOnInit(): void { }
@@ -63,8 +73,16 @@ export class Button implements OnInit, AfterContentInit, OnDestroy {
 
   ngOnDestroy(): void { }
 
-  public onClick(event: Event) {
-    console.log(event)
+  public _onClick(event: Event) {
+    this.onClick.emit(event);
+  }
+
+  public _onFocus(event: FocusEvent) {
+    this.onFocus.emit(event);
+  }
+
+  public _onBlur(event: Event) {
+    this.onBlur.emit(event);
   }
 
   @HostBinding('class')
