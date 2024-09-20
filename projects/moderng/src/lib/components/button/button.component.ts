@@ -8,8 +8,27 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { ButtonVariant } from './button.interface';
+import { ButtonSize, ButtonVariant } from './button.interface';
 import { CommonModule } from '@angular/common';
+
+const base = "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 transition-colors"
+
+const variants: Record<string, string> = {
+  primary: "bg-primary text-primary-foreground hover:bg-primary/90 shadow",
+  secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow",
+  destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow",
+  outline: "bg-background border border-input hover:text-accent-foreground hover:bg-accent shadow",
+  ghost: "hover:bg-accent hover:text-accent-foreground",
+  link: "text-primary underline-offset-4 hover:underline",
+}
+
+const sizes: Record<string, string> = {
+  base: "h-9 px-4 py-2",
+  icon: "h-9 w-9"
+}
+
+const buildBtnClass = (variant: string, size: string): string => 
+  `${base} ${variants[variant]} ${sizes[size]}`
 
 @Component({
   standalone: true,
@@ -21,37 +40,36 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   host: {
     '[attr.type]': 'type',
-    role: 'button',
-    class:
-      'inline-flex items-center justify-center whitespace-nowrap h-9 px-4 py-2 rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 transition-colors shadow',
-  },
+    '[attr.data-disabled]': 'disabled',
+    'role': 'button',
+    '(click)': 'onClick($event)'
+  }
 })
 export class Button implements OnInit, AfterContentInit, OnDestroy {
+  
   @Input() type: string = 'button';
 
   @Input() disabled: boolean = false;
 
   @Input() variant: ButtonVariant = 'primary';
 
+  @Input() size: ButtonSize = 'base';
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  ngAfterContentInit(): void {}
+  ngAfterContentInit(): void { }
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void { }
 
-  @HostBinding('class')
-  get hostClasses() {
-    return this.variantClass()[this.variant];
+  public onClick(event: Event) {
+    console.log(event)
   }
 
-  private variantClass: () => { [klass: string]: string } = () => ({
-    primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
-    secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-    destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-    outline: 'bg-background text-accent-foreground hover:bg-accent',
-    ghost: 'bg-ghost text-ghost-foreground hover:bg-ghost/80',
-    link: 'underline-offset-4 hover:underline',
-  });
+  @HostBinding('class')
+  get classes() {
+    return buildBtnClass(this.variant, this.size);
+  }
+
 }
