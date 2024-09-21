@@ -10,24 +10,48 @@
       </span>
     </span>
   </div>
-  <div class="flex flex-wrap items-center justify-center w-full h-full space-x-4 dark:bg-slate-800">
-    <moderng-button (onClick)="toggle()">Button</moderng-button>
-    <moderng-button variant="secondary" (onClick)="toggle()">Secondary</moderng-button>
-    <moderng-button variant="destructive" (onClick)="toggle()">Destructive</moderng-button>
-    <moderng-button variant="outline" (onClick)="toggle()">Outline</moderng-button>
-    <moderng-button variant="ghost" (onClick)="toggle()">Ghost</moderng-button>
-    <moderng-button variant="link">Link</moderng-button>
-    <moderng-button size="icon" variant="outline">
-      <ng-icon name="matKeyboardArrowRightOutline"/>
-    </moderng-button>
-    <moderng-button>
-      <ng-icon name="matMailOutlineOutline" class="me-2"/>
-      Login with Email
-    </moderng-button>
-    <moderng-button [disabled]="true">
-      <ng-icon name="matAutorenewOutline" class="animate-spin me-2"/>
-      Please wait
-    </moderng-button>
+  <div class="w-full m-auto my-2 h-min">
+    <div class="flex flex-wrap items-center justify-center w-auto gap-2 space-x-4 h-min dark:bg-slate-800">
+      <Button (onClick)="toggle()">Button</Button>
+      <Button variant="secondary" (onClick)="toggle()">Secondary</Button>
+      <Button variant="destructive" (onClick)="toggle()">Destructive</Button>
+      <Button variant="outline" (onClick)="toggle()">Outline</Button>
+      <Button variant="ghost" (onClick)="toggle()">Ghost</Button>
+      <Button variant="link">Link</Button>
+      <Button size="icon" variant="outline">
+        <ng-icon name="matKeyboardArrowRightOutline"/>
+      </Button>
+      <Button>
+        <ng-icon name="matMailOutlineOutline" class="me-2"/>
+        Login with Email
+      </Button>
+      <Button [disabled]="true">
+        <ng-icon name="matAutorenewOutline" class="animate-spin me-2"/>
+        Please wait
+      </Button>
+    </div>
   </div>  
+  <div class="w-1/3 m-auto my-2 h-min">
+    <Accordion [collapsible]="true" type="single">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Is it styled?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It comes with default styles that matches the other
+          components&apos; aesthetic.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It's animated by default, but you can disable it if you prefer.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+    
+  </div>
 </main>
 

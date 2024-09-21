@@ -34,14 +34,13 @@ const buildBtnClass = (variant: string, size: string): string =>
 
 @Component({
   standalone: true,
-  selector: 'moderng-button',
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css'],
+  selector: 'Button',
+  template: `<ng-content/>`,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule],
   host: {
-    '[attr.type]': 'type',
+    'type': 'button',
     '[attr.data-disabled]': 'disabled',
     'role': 'button',
     '(click)': '_onClick($event)',
@@ -49,9 +48,7 @@ const buildBtnClass = (variant: string, size: string): string =>
     '(blur)': '_onBlur($event)'
   }
 })
-export class Button implements OnInit, AfterContentInit, OnDestroy {
-  
-  @Input() type: string = 'button';
+export class Button {
 
   @Input() disabled: boolean = false;
 
@@ -64,14 +61,6 @@ export class Button implements OnInit, AfterContentInit, OnDestroy {
   @Output() onFocus = new EventEmitter<FocusEvent>();
 
   @Output() onBlur = new EventEmitter<Event>();
-
-  constructor() {}
-
-  ngOnInit(): void { }
-
-  ngAfterContentInit(): void { }
-
-  ngOnDestroy(): void { }
 
   public _onClick(event: Event) {
     this.onClick.emit(event);

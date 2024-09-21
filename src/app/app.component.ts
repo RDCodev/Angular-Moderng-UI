@@ -8,6 +8,10 @@ import {
   matMailOutlineOutline
 } from "@ng-icons/material-icons/outline"
 import { Button } from '../../projects/moderng/src/lib/components/button/button.component';
+import { Accordion } from '../../projects/moderng/src/lib/components/accordion/accordion.component';
+import { AccordionContent } from '../../projects/moderng/src/lib/components/accordion/accordion-content.component';
+import { AccordionItem } from '../../projects/moderng/src/lib/components/accordion/accordion-item.component';
+import { AccordionTrigger } from '../../projects/moderng/src/lib/components/accordion/accordion-trigger.component';
 
 @Component({
   standalone: true,
@@ -19,6 +23,10 @@ import { Button } from '../../projects/moderng/src/lib/components/button/button.
     RouterOutlet,
     Button,
     NgIconComponent,
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger
   ],
   viewProviders: [
     provideIcons({
