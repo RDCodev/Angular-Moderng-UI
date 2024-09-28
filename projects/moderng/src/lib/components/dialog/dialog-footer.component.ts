@@ -3,10 +3,10 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from "@angular/
 
 @Component({
   standalone: true,
-  selector: "moderng-input",
-  template: ``,
-  encapsulation: ViewEncapsulation.None,
+  selector: 'DialogFooter',
+  template: `<ng-content/>`,
+  imports: [ CommonModule ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ CommonModule ]
+  encapsulation: ViewEncapsulation.None
 })
-export class Input { }
+export class DialogFooter { }

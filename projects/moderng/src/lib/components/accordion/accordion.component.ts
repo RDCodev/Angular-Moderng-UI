@@ -1,6 +1,14 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output, signal, ViewEncapsulation } from "@angular/core";
-import { AccordionItem } from "./accordion-item.component";
+import { 
+  ChangeDetectionStrategy, 
+  Component, 
+  EventEmitter, 
+  HostBinding, 
+  Input, 
+  Output, 
+  signal, 
+  ViewEncapsulation 
+} from "@angular/core";
 
 const base = "w-full";
 

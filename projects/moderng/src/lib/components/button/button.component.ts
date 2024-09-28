@@ -40,7 +40,7 @@ const buildBtnClass = (variant: string, size: string): string =>
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule],
   host: {
-    'type': 'button',
+    '[attr.type]': 'type',
     '[attr.data-disabled]': 'disabled',
     'role': 'button',
     '(click)': '_onClick($event)',
@@ -49,6 +49,8 @@ const buildBtnClass = (variant: string, size: string): string =>
   }
 })
 export class Button {
+
+  @Input() type: string = 'button';
 
   @Input() disabled: boolean = false;
 

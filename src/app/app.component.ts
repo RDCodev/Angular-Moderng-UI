@@ -7,11 +7,18 @@ import {
   matAutorenewOutline,
   matMailOutlineOutline
 } from "@ng-icons/material-icons/outline"
-import { Button } from '../../projects/moderng/src/lib/components/button/button.component';
-import { Accordion } from '../../projects/moderng/src/lib/components/accordion/accordion.component';
-import { AccordionContent } from '../../projects/moderng/src/lib/components/accordion/accordion-content.component';
-import { AccordionItem } from '../../projects/moderng/src/lib/components/accordion/accordion-item.component';
-import { AccordionTrigger } from '../../projects/moderng/src/lib/components/accordion/accordion-trigger.component';
+import { Button } from '@moderng/components';
+import { Accordion } from '@moderng/components';
+import { AccordionContent } from '@moderng/components';
+import { AccordionItem } from '@moderng/components';
+import { AccordionTrigger } from '@moderng/components';
+import { Dialog } from '@moderng/components';
+import { DialogTrigger } from "@moderng/components";
+import { DialogContent } from "@moderng/components";
+import { DialogHeader } from "@moderng/components";
+import { DialogDescription } from "@moderng/components";
+import { DialogTitle } from "@moderng/components";
+import { DialogFooter } from "@moderng/components";
 
 @Component({
   standalone: true,
@@ -26,8 +33,15 @@ import { AccordionTrigger } from '../../projects/moderng/src/lib/components/acco
     Accordion,
     AccordionContent,
     AccordionItem,
-    AccordionTrigger
-  ],
+    AccordionTrigger,
+    Dialog,
+    DialogTrigger,
+    DialogContent,
+    DialogHeader,
+    DialogDescription,
+    DialogTitle,
+    DialogFooter
+],
   viewProviders: [
     provideIcons({
       matKeyboardArrowRightOutline,

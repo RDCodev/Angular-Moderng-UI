@@ -10,7 +10,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@moderng/*": [ "./dist/moderng/*" ]
+      "@moderng/components": [ "./projects/moderng/src/lib/components/public_api.ts" ]
     },
     "skipLibCheck": true,
     "isolatedModules": true,
