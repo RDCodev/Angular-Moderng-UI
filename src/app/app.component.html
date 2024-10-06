@@ -52,23 +52,24 @@
       </AccordionItem>
     </Accordion>
   </div>
-  <div class="w-1/3 p-4 m-auto rounded-lg shadow-inner h-min">
+  <div class="flex justify-center w-1/3 p-4 m-auto rounded-lg shadow-inner">
     <Dialog>
       <DialogTrigger>
         <Button variant="outline">Open</Button>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Are you absolutely sure?</DialogTitle>
+            <DialogDescription>
+              This action cannot be undone. This will permanently delete your account
+              and remove your data from our servers.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button dialogClose>Confirm</Button>
+            <Button variant="destructive" dialogClose>Cancel</Button>
+          </DialogFooter>
+        </DialogContent>
       </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your account
-            and remove your data from our servers.
-          </DialogDescription>
-        </DialogHeader>
-        <DialogFooter>
-          <Button type="submit">Confirm</Button>
-        </DialogFooter>
-      </DialogContent>
     </Dialog>
   </div>
 </main>

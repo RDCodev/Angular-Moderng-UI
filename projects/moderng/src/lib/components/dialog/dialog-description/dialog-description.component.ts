@@ -12,5 +12,8 @@ import {
   imports: [CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  host: {
+    class: "text-sm text-muted-foreground"
+  }
 })
 export class DialogDescription { }

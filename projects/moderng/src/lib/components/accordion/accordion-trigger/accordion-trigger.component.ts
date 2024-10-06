@@ -1,9 +1,9 @@
 import { CommonModule } from "@angular/common";
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostBinding, inject, Input, signal, ViewContainerRef, ViewEncapsulation } from "@angular/core";
+import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, inject, Input, signal, ViewContainerRef, ViewEncapsulation } from "@angular/core";
 import { NgIconComponent, provideIcons } from "@ng-icons/core";
 import { matKeyboardArrowDownOutline } from "@ng-icons/material-icons/outline";
-import { AccordionItem } from "./accordion-item.component";
-import { Accordion } from "./accordion.component";
+import { AccordionItem } from "../accordion-item/accordion-item.component";
+import { Accordion } from "../accordion/accordion.component";
 
 const base = "flex"
 

@@ -7,6 +7,9 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from "@angular/
   template: `<ng-content/>`,
   imports: [ CommonModule ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    class: "text-lg font-semibold"
+  }
 })
 export class DialogTitle { }

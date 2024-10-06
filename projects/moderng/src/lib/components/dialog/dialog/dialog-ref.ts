@@ -1,7 +1,7 @@
 import { Observable, Subject, Subscription } from "rxjs";
 import { FocusOrigin } from "@angular/cdk/a11y"
 import { OverlayRef } from "@angular/cdk/overlay";
-import { DialogConfig } from "./dialog.config";
+import { DialogConfig } from "../config/dialog.config";
 
 
 export class DialogRef { 

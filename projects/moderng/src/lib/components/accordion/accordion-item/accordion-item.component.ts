@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, HostBinding, inject, Input, signal, ViewChild, ViewEncapsulation } from '@angular/core';
-import { AccordionTrigger } from './accordion-trigger.component';
-import { AccordionContent } from './accordion-content.component';
-import { Accordion } from './accordion.component';
+import { AccordionTrigger } from '../accordion-trigger/accordion-trigger.component';
+import { AccordionContent } from '../accordion-content/accordion-content.component';
+import { Accordion } from '../accordion/accordion.component';
 
 const base = "border-b";
 

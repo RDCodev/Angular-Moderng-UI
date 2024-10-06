@@ -3,10 +3,13 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from "@angular/
 
 @Component({
   standalone: true,
-  selector: 'DialogContent',
+  selector: 'DialogHeader',
   template: `<ng-content/>`,
-  imports: [ CommonModule ],
+  imports: [CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    class: "flex flex-col space-y-1.5 text-center"
+  }
 })
-export class DialogContent { }
+export class DialogHeader { }

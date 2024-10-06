@@ -12,44 +12,49 @@ import {
   defaultDialogConfig,
   DialogConfig,
   DialogConfigToken,
-} from './dialog.config';
+} from '../config/dialog.config';
 import { TemplatePortal } from '@angular/cdk/portal';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DialogService {
-  private readonly config =
-    inject(DialogConfigToken, { optional: true }) ?? defaultDialogConfig;
+
+  private readonly config = inject(DialogConfigToken, { optional: true }) ?? defaultDialogConfig;
 
   private readonly overlay = inject(Overlay);
+
   private readonly overlayContainer = inject(OverlayContainer);
   
-  private readonly scrollStrategy =
-    this.config.scrollStrategy ?? this.overlay.scrollStrategies.block();
   private readonly dialogService = inject(DialogService, {
     optional: true,
     skipSelf: true,
   });
 
+
   private currentDialogs: DialogRef[] = [];
 
+  private readonly scrollStrategy = this.config.scrollStrategy ?? this.overlay.scrollStrategies.block();
+  
+
   private readonly afterCloseDialog = new Subject<void>();
+
   private readonly afterOpenDialog = new Subject<DialogRef>();
 
-  open(
-    templateRef: TemplateRef<DialogContext>,
-    config?: DialogConfig
-  ): DialogRef {
+
+  open(templateRef: TemplateRef<DialogContext>, config?: DialogConfig ): DialogRef {
+
     const defaultConfig = this.config;
+    
     config = { ...defaultConfig, ...config };
     config.id = config.id;
 
     const overlayConfig = this.getOverlayConfig(config);
     const overlayRef = this.overlay.create(overlayConfig);
-    const dialogRef = new DialogRef(overlayRef, config);
-    const injector = this.createInjector(config, dialogRef, undefined);
 
+    const dialogRef = new DialogRef(overlayRef, config);
+
+    const injector = this.createInjector(config, dialogRef, undefined);
     const context: DialogContext = {
       $implicit: dialogRef,
       close: dialogRef.close.bind(dialogRef)
@@ -89,7 +94,9 @@ export class DialogService {
     dialogRef: DialogRef,
     fallbackInjector: Injector | undefined
   ): Injector {
+
     const userInjector = config.injector || config.viewContainerRef?.injector;
+    
     const providers: StaticProvider[] = [
       { provide: DialogRef, useValue: dialogRef },
     ];

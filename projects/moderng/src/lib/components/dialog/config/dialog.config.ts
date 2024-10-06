@@ -4,19 +4,29 @@ import { InjectionToken, Injector, Provider, ViewContainerRef } from "@angular/c
 export type DialogRole = "dialog" | "alterdialog"
 
 export interface DialogConfig {
+
   viewContainerRef?: ViewContainerRef;
+
   injector?: Injector;
+
   id?: string;
+
   role?: DialogRole;
+
   modal?: boolean;
+
   scrollStrategy?: ScrollStrategy;
+
   closeOnNaviation?: boolean;
 }
 
 export const defaultDialogConfig: DialogConfig = {
   role: "dialog",
+
   modal: true,
-  closeOnNaviation: true
+
+  closeOnNaviation: true,
+  
 };
 
 export const DialogConfigToken = new InjectionToken<DialogConfig>("DialogConfigToken")

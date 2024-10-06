@@ -8,9 +8,9 @@ import {
   signal, 
   ViewEncapsulation 
 } from "@angular/core";
-import { Accordion } from "./accordion.component";
-import { AccordionItem } from "./accordion-item.component";
-import { injectDimensions } from "../../utils/dimensions";
+import { Accordion } from "../accordion/accordion.component";
+import { AccordionItem } from "../accordion-item/accordion-item.component";
+import { injectDimensions } from "../../../utils/dimensions";
 
 const base = "overflow-hidden text-sm data-[state=close]:hidden data-[state=open]:visible"
 

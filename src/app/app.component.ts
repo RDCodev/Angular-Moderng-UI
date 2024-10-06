@@ -7,7 +7,7 @@ import {
   matAutorenewOutline,
   matMailOutlineOutline
 } from "@ng-icons/material-icons/outline"
-import { Button } from '@moderng/components';
+import { Button, DialogClose } from '@moderng/components';
 import { Accordion } from '@moderng/components';
 import { AccordionContent } from '@moderng/components';
 import { AccordionItem } from '@moderng/components';
@@ -40,7 +40,8 @@ import { DialogFooter } from "@moderng/components";
     DialogHeader,
     DialogDescription,
     DialogTitle,
-    DialogFooter
+    DialogFooter,
+    DialogClose
 ],
   viewProviders: [
     provideIcons({
